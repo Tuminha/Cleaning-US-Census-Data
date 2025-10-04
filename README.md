@@ -153,15 +153,35 @@ Data Processing Results:
 - **Technical Achievement**: Demonstrated pandas mastery in data cleaning, transformation, and visualization
 
 ### 🖼 Visuals
+
+#### Race Distribution Histograms
 <div align="center">
 
-<img src="images/income_vs_women_scatter.png" alt="Income vs Women Proportion Scatterplot" width="680" />
+<img src="images/histogram_white_population_percentage.png" alt="White Population Percentage Distribution" width="680" />
 
 <br /><br />
 
-<img src="images/race_distribution_histograms.png" alt="Race Distribution Histograms by State" width="680" />
+<img src="images/histogram_spanish_population_percentage.png" alt="Hispanic Population Percentage Distribution" width="680" />
+
+<br /><br />
+
+<img src="images/histogram_black_population_percentage.png" alt="Black Population Percentage Distribution" width="680" />
+
+<br /><br />
+
+<img src="images/histogram_native_population_percentage.png" alt="Native Population Percentage Distribution" width="680" />
+
+<br /><br />
+
+<img src="images/histogram_asian_population_percentage.png" alt="Asian Population Percentage Distribution" width="680" />
+
+<br /><br />
+
+<img src="images/histogram_pacific_population_percentage.png" alt="Pacific Population Percentage Distribution" width="680" />
 
 </div>
+
+> **Note**: Income vs Women scatterplot visualization is available in the Jupyter notebook output.
 
 ---
 
