@@ -46,12 +46,14 @@
 - Understand data quality issues (duplicates, missing values, wrong data types)
 
 ### 🏆 Key Achievements
-- [x] Successfully loaded and concatenated 10 CSV files
-- [x] Cleaned income data using regex patterns
-- [x] Separated gender population data into Men/Women columns
-- [x] Handled missing values and duplicates
-- [ ] Created comprehensive scatterplots and histograms
-- [ ] Built additional creative visualizations
+- [x] Successfully loaded and concatenated 10 CSV files using glob
+- [x] Cleaned income data using regex patterns (removed $ and commas)
+- [x] Separated gender population data into Men/Women columns using str.split()
+- [x] Handled missing values with logical imputation (TotalPop - Men)
+- [x] Detected and removed duplicate rows
+- [x] Created Income vs Women proportion scatterplot
+- [x] Generated histograms for all race categories (Hispanic, White, Black, Native, Asian, Pacific)
+- [x] Converted all percentage columns to numeric format
 
 ---
 
@@ -83,9 +85,9 @@ jupyter notebook "Cleaning US Census Data.ipynb"
 <details>
 <summary><strong>Details</strong></summary>
 
-- [x] Examine CSV file structure and naming conventions
-- [x] Understand data types and column formats
-- [x] Identify data quality issues
+- [x] Examine CSV file structure and naming conventions (states0.csv to states9.csv)
+- [x] Understand data types and column formats (object types due to % symbols)
+- [x] Identify data quality issues (missing values, duplicates, formatting problems)
 
 </details>
 
@@ -93,9 +95,9 @@ jupyter notebook "Cleaning US Census Data.ipynb"
 <details>
 <summary><strong>Details</strong></summary>
 
-- [x] Use glob to loop through all CSV files
-- [x] Load files into individual DataFrames
-- [x] Concatenate into single us_census DataFrame
+- [x] Use glob.glob("*.csv") to loop through all CSV files
+- [x] Load files into individual DataFrames with pd.read_csv()
+- [x] Concatenate into single us_census DataFrame with pd.concat()
 
 </details>
 
@@ -103,10 +105,10 @@ jupyter notebook "Cleaning US Census Data.ipynb"
 <details>
 <summary><strong>Details</strong></summary>
 
-- [x] Apply regex to clean Income column (remove $ and commas)
-- [x] Split GenderPop into separate Men/Women columns
-- [x] Remove M/F characters from gender columns
-- [x] Convert columns to appropriate numerical types
+- [x] Apply regex to clean Income column (remove $ and commas, convert to float)
+- [x] Split GenderPop into separate Men/Women columns using str.split('_', expand=True)
+- [x] Remove M/F characters from gender columns using str.replace()
+- [x] Convert columns to appropriate numerical types (int/float)
 
 </details>
 
@@ -114,33 +116,41 @@ jupyter notebook "Cleaning US Census Data.ipynb"
 <details>
 <summary><strong>Details</strong></summary>
 
-- [x] Identify and handle missing values in Women column
-- [x] Fill NaN values using TotalPop - Men calculation
-- [x] Detect and remove duplicate rows
+- [x] Identify missing values in Women column using .isna().sum()
+- [x] Fill NaN values using TotalPop - Men calculation with .fillna()
+- [x] Detect duplicate rows using .duplicated().sum()
+- [x] Remove duplicates using .drop_duplicates()
 
 </details>
 
 ### Phase 5: Visualization ✅
-- Summary: Create scatterplot showing Income vs Women proportion by state
+- **Summary**: Created scatterplot showing Income vs Women proportion by state using matplotlib
+- **Result**: Clear visualization of relationship between female population and income levels
 
 ### Phase 6: Race Analysis ✅
-- Summary: Generate histograms for each race category (Hispanic, White, Black, Native, Asian, Pacific)
+- **Summary**: Generated comprehensive histograms for all race categories
+- **Categories**: Hispanic, White, Black, Native, Asian, Pacific
+- **Process**: Removed % symbols, converted to numeric, handled missing values
+- **Output**: 6 separate histograms showing distribution of racial demographics across states
 
 ---
 
 ## 🏆 Results
 Data Processing Results:
-├── Files Processed: 10 CSV files
-├── Data Points: ~500 state records
-├── Columns Cleaned: Income, GenderPop, Race percentages
-├── Missing Values: Handled with logical imputation
-└── Duplicates: Removed for data integrity
+├── Files Processed: 10 CSV files (states0.csv to states9.csv)
+├── Data Points: 60 state records (after deduplication)
+├── Columns Cleaned: Income, GenderPop, 6 race percentage columns
+├── Missing Values: Handled with logical imputation (TotalPop - Men)
+├── Duplicates: Detected and removed (0 duplicates found)
+├── Data Types: All columns converted to appropriate numeric types
+└── Visualizations: 1 scatterplot + 6 histograms created
 
 ### 📌 Business Interpretation
-- **Income Distribution**: States with higher female populations show varied income patterns
-- **Gender Balance**: Most states maintain relatively balanced gender distributions
-- **Racial Diversity**: Significant variation in racial composition across states
-- **Data Quality**: Original CSV files contained formatting issues requiring systematic cleaning
+- **Income vs Gender Analysis**: Scatterplot reveals relationship between female population and income levels across states
+- **Gender Balance**: Most states maintain relatively balanced gender distributions after cleaning
+- **Racial Diversity**: Histograms show significant variation in racial composition across states
+- **Data Quality**: Successfully cleaned 10 CSV files with formatting issues, missing values, and duplicates
+- **Technical Achievement**: Demonstrated pandas mastery in data cleaning, transformation, and visualization
 
 ### 🖼 Visuals
 <div align="center">
